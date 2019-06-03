@@ -1,29 +1,16 @@
 package Example01;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Example02 {
-    public static void main(String[] args) {
-        ArrayList list = new ArrayList();
-        list.add("Jack");
-        list.add("Annie");
-        list.add("Rose");
-
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Object obj = it.next();
-            if ("Annie".equals(obj)) {
-
-                it.remove();
-                continue;
-            }
-            System.out.println(obj);
+    public static void main(String[] args) throws IOException {
+        FileOutputStream out=new FileOutputStream("test.txt",true);
+        String str="你好";
+        byte[] b=str.getBytes();
+        for (int i=0;i<b.length;i++){
+            out.write(b[i]);
         }
-        System.out.println(list);
-
-
+        out.close();
     }
-
 }
-
