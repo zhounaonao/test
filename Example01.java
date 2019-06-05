@@ -1,17 +1,14 @@
-package Example01;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+
 
 public class Example01 {
     public static void main(String[] args) throws IOException {
-        FileInputStream in=new FileInputStream("test.txt");
-        int b=0;
-        while((b=in.read())!=-1){
-
-            System.out.println(b);
+        FileReader reader =new FileReader("reader.txt");
+        int ch;
+        while ((ch=reader.read())!=-1){
+            System.out.println((char) ch);
         }
-        in.close();
+        reader.close();
     }
 }

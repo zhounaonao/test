@@ -1,21 +1,17 @@
-package Example01;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Example03 {
     public static void main(String[] args) throws IOException {
-        FileInputStream in=new FileInputStream(".\\sk63\\nn1\\Wildlife.wmv");
-        FileOutputStream out=new FileOutputStream(".\\sk63\\nn2\\Wildlife.wmv");
-        int len;
-        long beginttime=System.currentTimeMillis();
-        while((len=in.read())!=-1){
-            out.write(len);
+        FileReader reader=new FileReader("src.txt");
+        BufferedReader br =new BufferedReader(reader);
+        FileWriter writer=new FileWriter("des.txt");
+        BufferedWriter bw =new BufferedWriter(writer);
+        String str;
+        while ((str=br.readLine())!=null){
+            bw.write(str);
+            bw.newLine();
         }
-        long endtime=System.currentTimeMillis();
-        System.out.println("时间"+(endtime-beginttime));
-        in.close();
-        out.close();
+        br.close();
+        bw.close();
     }
 }
